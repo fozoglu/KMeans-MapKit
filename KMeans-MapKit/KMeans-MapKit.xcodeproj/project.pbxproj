@@ -17,6 +17,7 @@
 		D4979B0C2074E33700C4EBD7 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4979B0B2074E33700C4EBD7 /* LocationAnnotation.swift */; };
 		D4979B0E2074E67700C4EBD7 /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4979B0D2074E67700C4EBD7 /* KMeans.swift */; };
 		D4979B102075038F00C4EBD7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4979B0F2075038F00C4EBD7 /* UIButton+Extension.swift */; };
+		D4979B18207C9CD500C4EBD7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4979B17207C9CD500C4EBD7 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D4979B0B2074E33700C4EBD7 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		D4979B0D2074E67700C4EBD7 /* KMeans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
 		D4979B0F2075038F00C4EBD7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		D4979B17207C9CD500C4EBD7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +106,14 @@
 			isa = PBXGroup;
 			children = (
 				D4979ADD2074CA5B00C4EBD7 /* AppDelegate.swift */,
-				D4979ADF2074CA5B00C4EBD7 /* ViewController.swift */,
+				D4979B16207C9BEC00C4EBD7 /* Extension */,
+				D4979B13207C9BB500C4EBD7 /* Model */,
+				D4979B14207C9BC000C4EBD7 /* View */,
+				D4979B15207C9BC500C4EBD7 /* Controller */,
 				D4979AE12074CA5B00C4EBD7 /* Main.storyboard */,
 				D4979AE42074CA5C00C4EBD7 /* Assets.xcassets */,
 				D4979AE62074CA5D00C4EBD7 /* LaunchScreen.storyboard */,
 				D4979AE92074CA5D00C4EBD7 /* Info.plist */,
-				D4979B0B2074E33700C4EBD7 /* LocationAnnotation.swift */,
-				D4979B0D2074E67700C4EBD7 /* KMeans.swift */,
-				D4979B0F2075038F00C4EBD7 /* UIButton+Extension.swift */,
 			);
 			path = "KMeans-MapKit";
 			sourceTree = "<group>";
@@ -132,6 +134,39 @@
 				D4979AFF2074CA5D00C4EBD7 /* Info.plist */,
 			);
 			path = "KMeans-MapKitUITests";
+			sourceTree = "<group>";
+		};
+		D4979B13207C9BB500C4EBD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4979B0B2074E33700C4EBD7 /* LocationAnnotation.swift */,
+				D4979B0D2074E67700C4EBD7 /* KMeans.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4979B14207C9BC000C4EBD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4979B15207C9BC500C4EBD7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4979B17207C9CD500C4EBD7 /* AboutViewController.swift */,
+				D4979ADF2074CA5B00C4EBD7 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D4979B16207C9BEC00C4EBD7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D4979B0F2075038F00C4EBD7 /* UIButton+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4979B18207C9CD500C4EBD7 /* AboutViewController.swift in Sources */,
 				D4979AE02074CA5B00C4EBD7 /* ViewController.swift in Sources */,
 				D4979ADE2074CA5B00C4EBD7 /* AppDelegate.swift in Sources */,
 				D4979B0E2074E67700C4EBD7 /* KMeans.swift in Sources */,

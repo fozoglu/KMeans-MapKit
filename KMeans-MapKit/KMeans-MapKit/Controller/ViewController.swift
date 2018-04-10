@@ -43,7 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
-        longPressGesture.minimumPressDuration = 0.5
+        longPressGesture.minimumPressDuration = 0.3
         self.mapView.addGestureRecognizer(longPressGesture)
         
     }
@@ -56,6 +56,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 print("Centroids : \(centroids)")
                 print("Clusters : \(clusters)")
                 self.mapView.removeAnnotations(self.mapView.annotations)
+                for i in 0 ... centroids.count-1 {
+                    print (i)
+                    let coordinateArr = centroids[i]
+                    self.pin = LocationAnnotation(identifier: "Centroid", title: "Centroid", coordinate: CLLocationCoordinate2D(latitude: coordinateArr[0], longitude: coordinateArr[1]))
+                    self.mapView.addAnnotation(self.pin!)
+                }
                 for i in 0 ... clusters.count-1 {
                     print (i)
                     if i == 0 {
@@ -120,8 +126,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? LocationAnnotation {
             let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-            
-            
             let identifier = annotation.identifier
             
             switch identifier{
@@ -149,6 +153,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
                 view.image = UIImage(named: "bluePoint")
                 return view
+            case "Centroid":
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "Centroid")
+                //view.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                view.image = UIImage(named: "Centroid")
+                return view
                 
             default:
                 view.pinTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -157,7 +167,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
             
         }
-         return nil
+        return nil
     }
     
     
