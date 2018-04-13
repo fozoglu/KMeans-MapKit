@@ -120,6 +120,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
             self.mapView.addAnnotation(self.pin!)
             print(pointLocation)
+            print("Min - Max Coordinates \(self.calculateMinMaxCordinate(locations: pointLocation))")
         }
     }
     
@@ -170,7 +171,22 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         return nil
     }
     
-    
+    func calculateMinMaxCordinate(locations: [[Double]]) ->  ([Double],[Double]) {
+        var allLat : [Double] = []
+        var allLon : [Double] = []
+        for location in locations {
+            allLat.append(location[0])
+            allLon.append(location[1])
+        }
+
+        let minLat = allLat.min()
+        let maxLat = allLat.max()
+        let minLon = allLon.min()
+        let maxLon = allLon.max()
+        
+        return ([minLat!,minLon!],[maxLat!,maxLon!])
+        
+    }
 }
 
 
