@@ -16,7 +16,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet var clusteringNumberButton: UIButton!
     @IBOutlet var locationButton: UIButton!
     @IBOutlet var calculateKMeansButton: UIButton!
-    @IBOutlet var infoButton: UIButton!
     
     private var locationManager = CLLocationManager()
     private var userLocation: CLLocationCoordinate2D?
@@ -29,17 +28,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         super.viewDidLoad()
         
         mapView.delegate = self
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        locationManager.startMonitoringSignificantLocationChanges()
+       
         
         locationButton.addShadow(opacity: 0.8 , radius: 1)
         clusteringNumberButton.addShadow(opacity: 0.8 , radius: 1)
         calculateKMeansButton.addShadow(opacity: 0.8 , radius: 1)
-        infoButton.addShadow(opacity: 0.8, radius: 1)
         
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
@@ -107,6 +100,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @IBAction func locationButtonTapped(_ sender: UIButton) {
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            //locationManager.startMonitoringSignificantLocationChanges()
+        }
     }
     
     @objc func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
@@ -169,6 +170,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
         }
         return nil
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        self.mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
     }
     
     func calculateMinMaxCordinate(locations: [[Double]]) ->  ([Double],[Double]) {
