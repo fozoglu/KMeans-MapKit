@@ -2,7 +2,7 @@
 //  AboutViewController.swift
 //  KMeans-MapKit
 //
-//  Created by CBS MOBIL on 10.04.2018.
+//  Created by Furkan Ozoglu on 10.04.2018.
 //  Copyright © 2018 fozoglu. All rights reserved.
 //
 

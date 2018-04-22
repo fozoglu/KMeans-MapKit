@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  KMeans-MapKit
 //
-//  Created by CBS MOBIL on 4.04.2018.
+//  Created by Furkan Ozoglu on 4.04.2018.
 //  Copyright © 2018 fozoglu. All rights reserved.
 //
 
@@ -180,6 +180,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.stopUpdatingLocation()
     }
     
+    @IBAction func clearButtonTapped(_ sender: UIBarButtonItem) {
+        if self.mapView.annotations.count > 0 {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+    }
     func calculateMinMaxCordinate(locations: [[Double]]) ->  ([Double],[Double]) {
         var allLat : [Double] = []
         var allLon : [Double] = []
