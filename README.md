@@ -1,18 +1,23 @@
-# Show map scale
+# K-Means-Mapkit (K-Ortalamalar)
 
-[![Build Status](https://travis-ci.org/fozoglu/arcgis-mapscale-sample.svg?branch=master)](https://travis-ci.org/fozoglu/arcgis-mapscale-sample) [![license](https://img.shields.io/github/license/fozoglu/arcgis-mapscale-sample.svg)](https://github.com/fozoglu/arcgis-mapscale-sample/blob/master/LICENSE.txt) ![](https://img.shields.io/badge/platform-iOS-red.svg) ![Swift 4.x](https://img.shields.io/badge/Swift-4.x-blue.svg)
+[![license](https://img.shields.io/github/license/fozoglu/arcgis-mapscale-sample.svg)](https://github.com/fozoglu/arcgis-mapscale-sample/blob/master/LICENSE.txt) ![](https://img.shields.io/badge/platform-iOS-red.svg) ![Swift 4.x](https://img.shields.io/badge/Swift-4.x-blue.svg)
 
-This sample demonstrates how to show a map scale in the basemap
-
+This repository includes usage of KMeans algorithm on MapKit Library
 ----------------
 
-## How to use the sample
+## Kullanımı (Usage)
 
-The sample provides a map scale in the bottom screen, you can see the map scale using the map pinch gesture feature.
+Harita üzerinde basılı tutarak noktaları atın. Hesapla butonuna dokunun. Hesaplama tamamlandığında noktalar farklı renklerde kümelenecek.
 
 ![](image1.png)
 
-## How it works
+## Hakkında (About)
 
-A `UIView` and `UILabel` is added to the `UIViewController` in the `UIStoryboard` to show the map scale. After the pinch gesture is added to the `ViewDidLoad`. When called from the pinch gesture `mapPinchedByTouch` metod, the scale value of the base map is set on the scale label. 
+YTÜ Harita Mühendisliği, "Mekansal İstatistik" doktora dersi proje uygulamasıdır. K-Means (K-Ortalamalar) Kümeleme algoritamasının Apple haritalarında mekansal olarak kullanımını gösteren bir mobil (iOS) uygulama geliştirilmiştir. 
 
+Yüksek Harita Müh. Furkan ÖZOĞLU<br />
+Dr.Öğr.Üyesi Alper ŞEN 
+
+## Kaynaklar (Resources)
+
+[sdq](https://github.com/sdq/deepvis) -> KMeans.swift is used. Thanks.
