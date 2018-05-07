@@ -7,7 +7,7 @@ This repository includes usage of KMeans algorithm on MapKit Library
 
 ## Kullanımı (Usage)
 
-Harita üzerinde basılı tutarak noktaları atın. Hesapla butonuna dokunun. Hesaplama tamamlandığında noktalar farklı renklerde kümelenecek.
+Harita üzerinde basılı tutarak noktaları atın. Hesapla butonuna dokunun. Hesaplama tamamlandığında noktalar farklı renklerde kümelenecektir.
 
 ![](image1.png)
 
@@ -15,7 +15,7 @@ Harita üzerinde basılı tutarak noktaları atın. Hesapla butonuna dokunun. He
 
 YTÜ Harita Mühendisliği, "Mekansal İstatistik" doktora dersi proje uygulamasıdır. K-Means (K-Ortalamalar) Kümeleme algoritamasının Apple haritalarında mekansal olarak kullanımını gösteren bir mobil (iOS) uygulama geliştirilmiştir. 
 
-Yüksek Harita Müh. Furkan ÖZOĞLU<br />
+Harita Yüksek Müh. Furkan ÖZOĞLU<br />
 Dr.Öğr.Üyesi Alper ŞEN 
 
 ## Kaynaklar (Resources)
