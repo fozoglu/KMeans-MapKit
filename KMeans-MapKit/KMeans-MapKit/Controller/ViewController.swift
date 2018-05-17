@@ -11,16 +11,18 @@ import MapKit
 import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    
+    //IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var clusteringNumberButton: UIButton!
+    @IBOutlet var clusteringNumberUpButton: UIButton!
+    @IBOutlet var clusteringNumberDownButton: UIButton!
     @IBOutlet var locationButton: UIButton!
     @IBOutlet var calculateKMeansButton: UIButton!
-    
+    //Private Variable
     private var locationManager = CLLocationManager()
     private var userLocation: CLLocationCoordinate2D?
     private var pin : LocationAnnotation?
-    
+    //Public Variable
     var pointLocation : [[Double]] = []
     var clusteringNumber : Int = 2
     
@@ -32,6 +34,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         locationButton.addShadow(opacity: 0.8 , radius: 1)
         clusteringNumberButton.addShadow(opacity: 0.8 , radius: 1)
+        clusteringNumberUpButton.addShadow(opacity: 0.8 , radius: 1)
+        clusteringNumberDownButton.addShadow(opacity: 0.8 , radius: 1)
         calculateKMeansButton.addShadow(opacity: 0.8 , radius: 1)
         
         
@@ -81,12 +85,44 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             self.mapView.addAnnotation(self.pin!)
                         }
                     }
+                    else if i == 3{
+                        let coordinateArr = clusters[i]
+                        for coordinate in coordinateArr {
+                            self.pin = LocationAnnotation(identifier: "Purple", title: "Sample", coordinate: CLLocationCoordinate2D(latitude: coordinate[0], longitude: coordinate[1]))
+                            
+                            self.mapView.addAnnotation(self.pin!)
+                        }
+                    }
+                    else if i == 4{
+                        let coordinateArr = clusters[i]
+                        for coordinate in coordinateArr {
+                            self.pin = LocationAnnotation(identifier: "Pink", title: "Sample", coordinate: CLLocationCoordinate2D(latitude: coordinate[0], longitude: coordinate[1]))
+                            
+                            self.mapView.addAnnotation(self.pin!)
+                        }
+                    }
+                    else if i == 5{
+                        let coordinateArr = clusters[i]
+                        for coordinate in coordinateArr {
+                            self.pin = LocationAnnotation(identifier: "Orange", title: "Sample", coordinate: CLLocationCoordinate2D(latitude: coordinate[0], longitude: coordinate[1]))
+                            
+                            self.mapView.addAnnotation(self.pin!)
+                        }
+                    }
+                    else if i == 6{
+                        let coordinateArr = clusters[i]
+                        for coordinate in coordinateArr {
+                            self.pin = LocationAnnotation(identifier: "Yellow", title: "Sample", coordinate: CLLocationCoordinate2D(latitude: coordinate[0], longitude: coordinate[1]))
+                            
+                            self.mapView.addAnnotation(self.pin!)
+                        }
+                    }
                 }
             }
         }
         
     }
-    
+    /*
     @IBAction func clusteringButtonTapped(_ sender: UIButton) {
         let buttonTitle = sender.title(for: .normal)!
         if buttonTitle == "2" {
@@ -96,6 +132,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         else{
             sender.setTitle("2",for: .normal)
             clusteringNumber = 2
+        }
+    }
+    */
+    @IBAction func clusteringNumberUpButtonTapped(_ sender: UIButton) {
+         let buttonTitle = clusteringNumberButton.title(for: .normal)!
+        if Int(buttonTitle)! < 8  {
+            let value = Int(buttonTitle)! + 1
+            clusteringNumberButton.setTitle(value.description,for: .normal)
+            clusteringNumber = value
+        }
+        else {
+            
+        }
+    }
+    
+    @IBAction func clusteringNumberDowmButtonTapped(_ sender: UIButton) {
+        let buttonTitle = clusteringNumberButton.title(for: .normal)!
+        if Int(buttonTitle)! > 2  {
+            let value = Int(buttonTitle)! - 1
+            clusteringNumberButton.setTitle(value.description,for: .normal)
+            clusteringNumber = value
         }
     }
     
@@ -154,6 +211,30 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 //view.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
                 //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
                 view.image = UIImage(named: "bluePoint")
+                return view
+            case "Purple":
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "Purple")
+                //view.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                view.image = UIImage(named: "purplePoint")
+                return view
+            case "Pink":
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "Pink")
+                //view.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                view.image = UIImage(named: "pinkPoint")
+                return view
+            case "Orange":
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "Orange")
+                //view.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                view.image = UIImage(named: "orangePoint")
+                return view
+            case "Yellow":
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "Yellow")
+                //view.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                //view.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                view.image = UIImage(named: "yellowPoint")
                 return view
             case "Centroid":
                 let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "Centroid")

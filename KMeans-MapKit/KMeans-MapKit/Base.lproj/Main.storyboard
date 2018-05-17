@@ -40,26 +40,6 @@
                                     <action selector="calculateKMeansButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C1W-Fl-4NK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hiy-0w-T4b">
-                                <rect key="frame" x="27" y="597" width="50" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="3hp-og-eFt"/>
-                                    <constraint firstAttribute="height" constant="50" id="pUN-GA-fob"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="2">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="clusteringButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WgK-5J-oT5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILQ-Uu-TUd">
                                 <rect key="frame" x="309" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,20 +59,79 @@
                                     <action selector="locationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCR-az-4RI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpN-6M-bUp">
+                                <rect key="frame" x="27" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ZAG-kf-e1f"/>
+                                    <constraint firstAttribute="height" constant="50" id="aTe-MZ-3j9"/>
+                                </constraints>
+                                <state key="normal" image="downArrow">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clusteringNumberDowmButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dGl-aN-2eE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVe-5R-qzn">
+                                <rect key="frame" x="27" y="477" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3CA-BS-TK1"/>
+                                    <constraint firstAttribute="height" constant="50" id="j3L-oY-ZWt"/>
+                                </constraints>
+                                <state key="normal" image="upArrow">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clusteringNumberUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="acS-wD-EBv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hiy-0w-T4b">
+                                <rect key="frame" x="27" y="535" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3hp-og-eFt"/>
+                                    <constraint firstAttribute="height" constant="50" id="pUN-GA-fob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="N0W-oW-9NL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Kn-Gl-VyV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ILQ-Uu-TUd" secondAttribute="trailing" constant="16" id="5jc-3M-xfr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hiy-0w-T4b" secondAttribute="bottom" constant="20" id="7LT-fa-ouo"/>
                             <constraint firstItem="N0W-oW-9NL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ed1-Kt-Ax7"/>
                             <constraint firstItem="N0W-oW-9NL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="Eva-qm-7Mf"/>
+                            <constraint firstItem="mfX-LC-bF3" firstAttribute="leading" secondItem="LpN-6M-bUp" secondAttribute="trailing" constant="44" id="Ivr-JP-xq1"/>
+                            <constraint firstItem="Hiy-0w-T4b" firstAttribute="top" secondItem="QVe-5R-qzn" secondAttribute="bottom" constant="8" id="JHU-Wy-Ebm"/>
                             <constraint firstItem="Hiy-0w-T4b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="L1I-zn-xr4"/>
-                            <constraint firstItem="mfX-LC-bF3" firstAttribute="leading" secondItem="Hiy-0w-T4b" secondAttribute="trailing" constant="44" id="S7W-2W-veJ"/>
+                            <constraint firstItem="LpN-6M-bUp" firstAttribute="top" secondItem="Hiy-0w-T4b" secondAttribute="bottom" constant="12" id="W7c-00-T5Q"/>
+                            <constraint firstItem="QVe-5R-qzn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="XHc-mN-zY1"/>
                             <constraint firstItem="ILQ-Uu-TUd" firstAttribute="leading" secondItem="mfX-LC-bF3" secondAttribute="trailing" constant="44" id="f6b-a4-3o9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LpN-6M-bUp" secondAttribute="bottom" constant="20" id="gaJ-IK-Bhf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mfX-LC-bF3" secondAttribute="bottom" constant="20" id="mvX-af-TPR"/>
                             <constraint firstItem="N0W-oW-9NL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tJb-4V-fDt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ILQ-Uu-TUd" secondAttribute="bottom" constant="20" id="wvS-mO-eyB"/>
+                            <constraint firstItem="LpN-6M-bUp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="yDS-O0-XZ7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -112,6 +151,8 @@
                     <connections>
                         <outlet property="calculateKMeansButton" destination="mfX-LC-bF3" id="aln-TD-eKy"/>
                         <outlet property="clusteringNumberButton" destination="Hiy-0w-T4b" id="69V-Ar-Z31"/>
+                        <outlet property="clusteringNumberDownButton" destination="LpN-6M-bUp" id="BAX-C6-mqg"/>
+                        <outlet property="clusteringNumberUpButton" destination="QVe-5R-qzn" id="4rO-qa-37i"/>
                         <outlet property="locationButton" destination="ILQ-Uu-TUd" id="g6Z-As-zJU"/>
                         <outlet property="mapView" destination="N0W-oW-9NL" id="Izm-Ed-O0a"/>
                     </connections>
@@ -206,6 +247,8 @@
     </scenes>
     <resources>
         <image name="LogoKmeans" width="512" height="512"/>
+        <image name="downArrow" width="30" height="18"/>
         <image name="ic_location" width="30" height="30"/>
+        <image name="upArrow" width="30" height="18"/>
     </resources>
 </document>
