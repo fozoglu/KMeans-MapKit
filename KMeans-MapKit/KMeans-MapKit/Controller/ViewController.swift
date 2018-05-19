@@ -31,19 +31,20 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         mapView.delegate = self
        
-        
+        //Add Shadow for Button
         locationButton.addShadow(opacity: 0.8 , radius: 1)
         clusteringNumberButton.addShadow(opacity: 0.8 , radius: 1)
         clusteringNumberUpButton.addShadow(opacity: 0.8 , radius: 1)
         clusteringNumberDownButton.addShadow(opacity: 0.8 , radius: 1)
         calculateKMeansButton.addShadow(opacity: 0.8 , radius: 1)
         
-        
+        //LongPressGesture
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
         longPressGesture.minimumPressDuration = 0.3
         self.mapView.addGestureRecognizer(longPressGesture)
         
     }
+    //Calculate KMeans Button
     @IBAction func calculateKMeansButtonTapped(_ sender: Any) {
         
         KMeansSwift.sharedInstance.addVectors(pointLocation)
@@ -60,7 +61,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.mapView.addAnnotation(self.pin!)
                 }
                 for i in 0 ... clusters.count-1 {
-                    print (i)
+                    //print (i)
                     if i == 0 {
                         let coordinateArr = clusters[i]
                         for coordinate in coordinateArr {
@@ -135,6 +136,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     */
+    // Clustering Number Upper
     @IBAction func clusteringNumberUpButtonTapped(_ sender: UIButton) {
          let buttonTitle = clusteringNumberButton.title(for: .normal)!
         if Int(buttonTitle)! < 8  {
@@ -146,7 +148,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
         }
     }
-    
+    // Clustering Number Down
     @IBAction func clusteringNumberDowmButtonTapped(_ sender: UIButton) {
         let buttonTitle = clusteringNumberButton.title(for: .normal)!
         if Int(buttonTitle)! > 2  {
@@ -155,7 +157,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             clusteringNumber = value
         }
     }
-    
+    // Location Button
     @IBAction func locationButtonTapped(_ sender: UIButton) {
         if (CLLocationManager.locationServicesEnabled()) {
             locationManager = CLLocationManager()
@@ -166,7 +168,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             //locationManager.startMonitoringSignificantLocationChanges()
         }
     }
-    
+    //
     @objc func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
         
         if gesture.state == .ended {
@@ -177,8 +179,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             self.pin = LocationAnnotation(identifier:"DarkGray", title: "Sample", coordinate: coordinate)
             
             self.mapView.addAnnotation(self.pin!)
-            print(pointLocation)
-            print("Min - Max Coordinates \(self.calculateMinMaxCordinate(locations: pointLocation))")
+            //print(pointLocation)
+            //print("Min - Max Coordinates \(self.calculateMinMaxCordinate(locations: pointLocation))")
         }
     }
     

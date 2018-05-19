@@ -12,7 +12,7 @@ import Darwin
 
 typealias KMVectors = Array<[Double]>
 typealias KMVector = [Double]
-
+// Hata Çeşitleri
 enum KMeansError: Error {
     case noDimension
     case noClusteringNumber
@@ -20,7 +20,7 @@ enum KMeansError: Error {
     case clusteringNumberLargerThanVectorsNumber
     case otherReason(String)
 }
-
+// Singleton Metot
 class KMeansSwift {
     
     static let sharedInstance = KMeansSwift()
@@ -51,7 +51,7 @@ class KMeansSwift {
     
     //MARK: Public
     
-    //check parameters
+    //check parameters (Parametreleri kontrol ediyor.)
     func checkAllParameters() -> Bool {
         if dimension < 1 { return false }
         if clusteringNumber < 1 { return false }
@@ -77,7 +77,7 @@ class KMeansSwift {
         beginClusteringWithNumberOfExcution(numberOfExcutions)
         return completion(true, finalCentroids, finalClusters)
     }
-    
+    // tüm değerleri siliyor.
     func reset() {
         vectors.removeAll()
         centroids.removeAll()
@@ -89,6 +89,7 @@ class KMeansSwift {
     //MARK: Private
     
     // 1: pick initial clustering centroids randomly
+    // 2: rasgetle olarak ilk kümeleme merkezlerini seç
     fileprivate func pickingInitialCentroidsRandomly() {
         let indexes = vectors.count.indexRandom[0..<clusteringNumber]
         var initialCenters = KMVectors()
@@ -99,6 +100,7 @@ class KMeansSwift {
     }
     
     // 2: assign each vector to the group that has the closest centroid.
+    // 2: Her bir vektör en yakın merkeze sahip olan gruba atanır.
     fileprivate func assignVectorsToTheGroup() {
         clusters.removeAll()
         for _ in 0..<clusteringNumber {
@@ -122,6 +124,7 @@ class KMeansSwift {
     }
     
     // 3: recalculate the positions of the K centroids. (return move distance square)
+    // 3: K centroid'lerin pozisyonlarını yeniden hesaplar.
     fileprivate func recalculateCentroids() -> Double {
         var moveDistanceSquare = 0.0
         for index in 0..<clusteringNumber {
@@ -140,6 +143,7 @@ class KMeansSwift {
     }
     
     // 4: repeat 2,3 until the new centroids cannot move larger than convergenceError or the iteration is over than maxIteration
+    // 4: Yeni centroid'ler, convergenceError'dan daha büyük hareket edemedikçe veya yineleme(iterasyon) maksimuma çıkana kadar 2,3'ü tekrarlayın
     fileprivate func beginClustering() -> Double {
         pickingInitialCentroidsRandomly()
         var iteration = 0
@@ -164,6 +168,7 @@ class KMeansSwift {
     }
     
     // 5: excute again (up to the number of excution), then choose the best result
+    // 5: tekrar gerçekleştir (Excution sayısana kadar ), sonra en iyi sonucu seç
     private func beginClusteringWithNumberOfExcution(_ number:Int) {
         var number = number
         if number < 1 { return }
@@ -181,16 +186,16 @@ class KMeansSwift {
     
 }
 
-//MARK: Helper
+//MARK: Helper (Yardımcı metotlar)
 
-//Add Vector
+//Add Vector (Vektor ekleme)
 private func vectorAddition(_ vector:KMVector, anotherVector:KMVector) -> KMVector {
     var addresult = KMVector(repeating: 0.0, count: vector.count)
     vDSP_vaddD(vector, 1, anotherVector, 1, &addresult, 1, vDSP_Length(vector.count))
     return addresult
 }
 
-//Calculate Euclidean Distance
+//Calculate Euclidean Distance (Öklit Mesafesi)
 private func EuclideanDistance(_ v1:[Double],v2:[Double]) -> Double {
     let distance = EuclideanDistanceSquare(v1,v2: v2)
     return sqrt(distance)
@@ -205,6 +210,7 @@ private func EuclideanDistanceSquare(_ v1:[Double],v2:[Double]) -> Double {
 }
 
 //Extension to pick random number. According to stackoverflow.com/questions/27259332/get-random-elements-from-array-in-swift
+// Rastgele sayı eklentisi
 private extension Int {
     var random: Int {
         return Int(arc4random_uniform(UInt32(abs(self))))
